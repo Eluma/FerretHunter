@@ -20,9 +20,11 @@ public class huntFerret extends Node
 
 	@Override
 	public void execute() {
+		Variables.status="Hunting";
+		
 		SceneObject boxTrap = SceneEntities.getNearest(Variables.boxTrap);  
 		GroundItem g = GroundItems.getNearest(Variables.boxTrapID);
-		System.out.println("hunting");
+
 		if (Players.getLocal().getAnimation() == -1 && boxTrap != null) { //check for traps
 			
 			if(!boxTrap.isOnScreen()){

@@ -34,7 +34,7 @@ public class Hunter extends ActiveScript implements PaintListener {
 		
 		Tabs.INVENTORY.open();
 		Variables.maxTrapAmt = (int) 1+(Skills.getLevel(Skills.HUNTER)/20); // allows amount of trap to increase if user level abv requirements
-		System.out.println(Variables.noOfTrap);
+
 		if (jobContainer != null) {
 			final Node job = jobContainer.state();
 			if (job != null) {
@@ -66,12 +66,12 @@ public class Hunter extends ActiveScript implements PaintListener {
 	     g.fillRect(1, 338, 517, 83);
 	     
 	     g.setColor(Color.WHITE);
-	     g.drawString("Run Time         :" + runTime.toElapsedString(), 21, 357);
-	     g.drawString("Experience Gained:" + (Skills.getExperience(Skills.HUNTER)-Variables.startingExperience)+"("+expPerHour+")", 21, 370);
-	     g.drawString("Level (gained)   :" + Skills.getLevel(Skills.HUNTER)+"(+"+ (Skills.getLevel(Skills.HUNTER)-Variables.startingLevel)+")", 21, 384);
-	     
+	     g.drawString("Run Time         :" + runTime.toElapsedString(), 21, 360);
+	     g.drawString("Experience Gained:" + (Skills.getExperience(Skills.HUNTER)-Variables.startingExperience)+"("+expPerHour+")", 21, 375);
+	     g.drawString("Level (gained)   :" + Skills.getLevel(Skills.HUNTER)+"(+"+ (Skills.getLevel(Skills.HUNTER)-Variables.startingLevel)+")", 21, 390);
+	     g.drawString("Status           :" + Variables.status,21,405);
 	     g.setColor(Color.GRAY);
-	     g.drawString("made by Kong", 400, 400);
+	     g.drawString("made by K.", 400, 420);
 	     
 	     g.setColor(Mouse.isPressed()?Color.WHITE:Color.RED);
 	     g.drawOval(p.x-3, p.y-2, 3, 3);

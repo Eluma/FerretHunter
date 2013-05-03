@@ -4,6 +4,7 @@ public class Variables
 {
 	public static int startingExperience, startingLevel, noOfFerret,noOfTrap,maxTrapAmt;
 	public static long startTime;
+	public static String status ="";
 
 	public static final int [] boxTrap = {19191,19192};//success,failure
 	public static final int ferretID = 10092;

@@ -13,7 +13,7 @@ public class Release extends Node{
 
 	@Override
 	public void execute() {
-		System.out.print("contains ferret");
+		Variables.status="Releasing Ferrets";
 		while(Inventory.contains(Variables.ferretID))
 		{
 			Inventory.getItem(Variables.ferretID).getWidgetChild().interact("Release");

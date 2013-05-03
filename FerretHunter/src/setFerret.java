@@ -25,7 +25,8 @@ public class setFerret extends Node
 
 	@Override
 	public void execute() {
-		System.out.println("setting trap");
+		Variables.status="Setting Traps";
+		
 		Tile ferretTile = new Tile (2308+Random.nextInt(0,6), 3509+Random.nextInt(0,6), 0);//area for catching ferret
 		
 		Path path = Walking.findPath(ferretTile);
