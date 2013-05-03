@@ -29,8 +29,8 @@ public class huntFerret extends Node
 	{
 		variables.status="Hunting";
 		
-		final SceneObject boxTrap = SceneEntities.getNearest(constants.boxTrap);  
-		final GroundItem g = GroundItems.getNearest(constants.boxTrapID);
+		final SceneObject BOX_TRAP = SceneEntities.getNearest(constants.BOX_TRAP);  
+		final GroundItem g = GroundItems.getNearest(constants.BOX_TRAPID);
 		
 		if(Players.getLocal().getAnimation() == -1 && g != null) //check for fallen traps
 		{
@@ -41,18 +41,18 @@ public class huntFerret extends Node
 			}
 		}
 		
-		if (Players.getLocal().getAnimation() == -1 && boxTrap != null) 
+		if (Players.getLocal().getAnimation() == -1 && BOX_TRAP != null) 
 		{ //check for traps
 			
-			if(!boxTrap.isOnScreen())
+			if(!BOX_TRAP.isOnScreen())
 			{
-				Camera.turnTo(boxTrap);
+				Camera.turnTo(BOX_TRAP);
 			}
-			if(boxTrap.interact("Check"))
+			if(BOX_TRAP.interact("Check"))
 				sleep(1800);
 			else
 			{
-				boxTrap.interact("Dismantle");
+				BOX_TRAP.interact("Dismantle");
 				sleep(1800);
 			}
 

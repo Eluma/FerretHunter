@@ -24,7 +24,7 @@ public class setFerret extends Node
 
 			Tabs.INVENTORY.open();
 		
-		return variables.maxTrapAmt>variables.noOfTrap && Inventory.contains(constants.boxTrapID) ;
+		return variables.maxTrapAmt>variables.noOfTrap && Inventory.contains(constants.BOX_TRAPID) ;
 		
 	}
 
@@ -40,14 +40,14 @@ public class setFerret extends Node
 		
 		sleep(Random.nextInt(2000, 3500));
 		
-		final SceneObject placedBoxTrap = SceneEntities.getNearest(constants.placedBoxTrapID);
-		final SceneObject boxTrap = SceneEntities.getNearest(constants.boxTrap);
+		final SceneObject placedBoxTrap = SceneEntities.getNearest(constants.PLACED_BOX_TRAPID);
+		final SceneObject BOX_TRAP = SceneEntities.getNearest(constants.BOX_TRAP);
 		
 		if(placedBoxTrap!= null)
 		{
-			if(boxTrap != null)
+			if(BOX_TRAP != null)
 			{
-				if(!Players.getLocal().getLocation().equals(boxTrap.getLocation()) )
+				if(!Players.getLocal().getLocation().equals(BOX_TRAP.getLocation()) )
 					if(!Players.getLocal().getLocation().equals(placedBoxTrap.getLocation()) )
 					{
 						layTrap();
@@ -58,9 +58,9 @@ public class setFerret extends Node
 				layTrap();
 			}
 		}
-		else if(boxTrap != null)
+		else if(BOX_TRAP != null)
 		{
-			if(!Players.getLocal().getLocation().equals(boxTrap.getLocation()) ) 
+			if(!Players.getLocal().getLocation().equals(BOX_TRAP.getLocation()) ) 
 			{
 				layTrap();
 			}
@@ -76,7 +76,7 @@ public class setFerret extends Node
 	
 	public void layTrap()
 	{
-		Item trap = Inventory.getItem(constants.boxTrapID);
+		Item trap = Inventory.getItem(constants.BOX_TRAPID);
 		if(trap != null)
 		{
 			if(Players.getLocal().getAnimation() != -1 )

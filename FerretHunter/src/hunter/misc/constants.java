@@ -2,8 +2,8 @@ package hunter.misc;
 
 public class constants 
 {
-	public static final int [] boxTrap = {19191,19192};//success,failure
-	public static final int ferretID = 10092;
-	public static final int boxTrapID = 10008;
-	public static final int placedBoxTrapID = 19187;
+	public static final int [] BOX_TRAP = {19191,19192};//success,failure
+	public static final int FERRET_ID = 10092;
+	public static final int BOX_TRAPID = 10008;
+	public static final int PLACED_BOX_TRAPID = 19187;
 }

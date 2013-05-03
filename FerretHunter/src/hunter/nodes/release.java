@@ -14,16 +14,16 @@ public class release extends Node
 	public boolean activate() 
 	{
 		Tabs.INVENTORY.open();
-		return Inventory.contains(constants.ferretID);
+		return Inventory.contains(constants.FERRET_ID);
 	}
 
 	@Override
 	public void execute() 
 	{
 		variables.status="Releasing Ferrets";
-		while(Inventory.contains(constants.ferretID))
+		while(Inventory.contains(constants.FERRET_ID))
 		{
-			if(Inventory.getItem(constants.ferretID).getWidgetChild().interact("Release"))
+			if(Inventory.getItem(constants.FERRET_ID).getWidgetChild().interact("Release"))
 			sleep(500);
 		}
 		
