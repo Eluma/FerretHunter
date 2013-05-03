@@ -43,6 +43,7 @@ public class Hunter extends ActiveScript implements PaintListener {
 				job.join();
 			}
 		} else {
+			jobs.add(new AntiBan());
 			jobs.add(new Release());
 			jobs.add(new setFerret());
 			jobs.add(new huntFerret());
