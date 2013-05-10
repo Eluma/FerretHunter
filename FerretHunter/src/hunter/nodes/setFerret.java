@@ -1,6 +1,6 @@
 package hunter.nodes;
-import hunter.misc.constants;
-import hunter.misc.variables;
+import hunter.misc.Constants;
+import hunter.misc.Variables;
 
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Tabs;
@@ -14,7 +14,7 @@ import org.powerbot.game.api.wrappers.map.Path;
 import org.powerbot.game.api.wrappers.node.Item;
 import org.powerbot.game.api.wrappers.node.SceneObject;
 
-public class setFerret extends Node
+public class SetFerret extends Node
 {
 	
 	
@@ -24,14 +24,14 @@ public class setFerret extends Node
 
 			Tabs.INVENTORY.open();
 		
-		return variables.maxTrapAmt>variables.noOfTrap && Inventory.contains(constants.BOX_TRAPID) ;
+		return Variables.maxTrapAmt>Variables.noOfTrap && Inventory.contains(Constants.BOX_TRAPID) ;
 		
 	}
 
 	@Override
 	public void execute() 
 	{
-		variables.status="Setting Traps";
+		Variables.status="Setting Traps";
 		
 		final Tile ferretTile = new Tile (2308+Random.nextInt(0,6), 3509+Random.nextInt(0,6), 0);//area for catching ferret
 		
@@ -40,8 +40,8 @@ public class setFerret extends Node
 		
 		sleep(Random.nextInt(2000, 3500));
 		
-		final SceneObject placedBoxTrap = SceneEntities.getNearest(constants.PLACED_BOX_TRAPID);
-		final SceneObject BOX_TRAP = SceneEntities.getNearest(constants.BOX_TRAP);
+		final SceneObject placedBoxTrap = SceneEntities.getNearest(Constants.PLACED_BOX_TRAPID);
+		final SceneObject BOX_TRAP = SceneEntities.getNearest(Constants.BOX_TRAP);
 		
 		if(placedBoxTrap!= null)
 		{
@@ -76,7 +76,7 @@ public class setFerret extends Node
 	
 	public void layTrap()
 	{
-		Item trap = Inventory.getItem(constants.BOX_TRAPID);
+		Item trap = Inventory.getItem(Constants.BOX_TRAPID);
 		if(trap != null)
 		{
 			if(Players.getLocal().getAnimation() != -1 )
@@ -84,7 +84,7 @@ public class setFerret extends Node
 			
 			if(trap.getWidgetChild().interact("Lay"))
 			{
-				variables.noOfTrap++;
+				Variables.noOfTrap++;
 				sleep(1500);	
 			}
 			

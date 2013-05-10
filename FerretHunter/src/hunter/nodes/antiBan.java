@@ -6,7 +6,7 @@ import org.powerbot.game.api.methods.input.Mouse;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.widget.Camera;
 
-public class antiBan extends Node
+public class AntiBan extends Node
 {
 
 		 

@@ -1,6 +1,6 @@
 package hunter.misc;
 
-public class constants 
+public class Constants 
 {
 	public static final int [] BOX_TRAP = {19191,19192};//success,failure
 	public static final int FERRET_ID = 10092;
