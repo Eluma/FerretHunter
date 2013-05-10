@@ -1,10 +1,10 @@
 package hunter.misc;
 
 
-public class variables 
+public class Variables 
 {
-	public static int startingExperience, startingLevel, noOfFerret,noOfTrap,maxTrapAmt;
-	public static long startTime;
+	public static int  noOfFerret,noOfTrap,maxTrapAmt;
+	
 	public static String status ="";
 
 }

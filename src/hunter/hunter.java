@@ -1,9 +1,6 @@
 package hunter;
-import hunter.misc.variables;
-import hunter.nodes.antiBan;
-import hunter.nodes.huntFerret;
-import hunter.nodes.release;
-import hunter.nodes.setFerret;
+import hunter.misc.Variables;
+import hunter.nodes.*;
 
 import java.util.ArrayList;
 import java.awt.Graphics;
@@ -25,7 +22,7 @@ import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.methods.input.Mouse;
 
 @Manifest(authors = {"K"}, name = "K.Ferret Hunter", description = "Hunt Ferrets ", version = 0.2 )
-public class hunter extends ActiveScript implements PaintListener 
+public class Hunter extends ActiveScript implements PaintListener 
 {
 	
 	private static Tree jobContainer = null;
@@ -35,10 +32,7 @@ public class hunter extends ActiveScript implements PaintListener
 	
 	public void onStart()
 	{
-		variables.startTime = System.currentTimeMillis();
-		variables.startingExperience = Skills.getExperience(Skills.HUNTER);
-		variables.startingLevel = Skills.getLevel(Skills.HUNTER);
-		
+		Variables.status = "Initialising.";
 	}
 
 	@Override
@@ -46,7 +40,7 @@ public class hunter extends ActiveScript implements PaintListener
 	{
 		
 		Tabs.INVENTORY.open();
-		variables.maxTrapAmt = (int) 1+(Skills.getLevel(Skills.HUNTER)/20); // allows amount of trap to increase if user level abv requirements
+		Variables.maxTrapAmt = (int) 1+(Skills.getLevel(Skills.HUNTER)/20); // allows amount of trap to increase if user level abv requirements
 
 		if (jobContainer != null) 
 		{
@@ -60,17 +54,13 @@ public class hunter extends ActiveScript implements PaintListener
 		} 
 		else 
 		{
-			jobs.add(new antiBan());
-			jobs.add(new release());
-			jobs.add(new huntFerret());
-			jobs.add(new setFerret());
-			
+			jobs.add(new AntiBan());
+			jobs.add(new Release());
+			jobs.add(new HuntFerret());
+			jobs.add(new SetFerret());
 			
 			jobContainer = new Tree(jobs.toArray(new Node[jobs.size()]));
 		}
-		
-		
-
 		
 		return Random.nextInt(100, 350);
 	}
@@ -88,7 +78,7 @@ public class hunter extends ActiveScript implements PaintListener
 	     g.drawString("Run Time         :" + runTime.toElapsedString(), 21, 360);
 	     g.drawString("Experience Gained:" + sd.experience(Skills.HUNTER)+"("+sd.experience(Rate.HOUR, Skills.HUNTER)+")", 21, 375);
 	     g.drawString("Level (gained)   :" + Skills.getLevel(Skills.HUNTER)+"(+"+ sd.level(Skills.HUNTER)+")", 21, 390);
-	     g.drawString("Status           :" + variables.status,21,405);
+	     g.drawString("Status           :" + Variables.status,21,405);
 	     g.setColor(Color.GRAY);
 	     g.drawString("made by K.", 400, 420);
 	     

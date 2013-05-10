@@ -1,7 +1,7 @@
 package hunter.nodes;
 //script look for successful/unsuccessful box trap.
-import hunter.misc.constants;
-import hunter.misc.variables;
+import hunter.misc.Constants;
+import hunter.misc.Variables;
 
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.interactive.Players;
@@ -13,30 +13,30 @@ import org.powerbot.game.api.wrappers.node.GroundItem;
 import org.powerbot.game.api.wrappers.node.SceneObject;
 
 
-public class huntFerret extends Node
+public class HuntFerret extends Node
 {
 
 	@Override
 	public boolean activate() 
 	{
 		
-		return (variables.noOfTrap>0);
+		return (Variables.noOfTrap>0);
 		
 	}
 
 	@Override
 	public void execute() 
 	{
-		variables.status="Hunting";
+		Variables.status="Hunting";
 		
-		final SceneObject BOX_TRAP = SceneEntities.getNearest(constants.BOX_TRAP);  
-		final GroundItem g = GroundItems.getNearest(constants.BOX_TRAPID);
+		final SceneObject BOX_TRAP = SceneEntities.getNearest(Constants.BOX_TRAP);  
+		final GroundItem g = GroundItems.getNearest(Constants.BOX_TRAPID);
 		
 		if(Players.getLocal().getAnimation() == -1 && g != null) //check for fallen traps
 		{
 			if(g.getLocation().interact("Take"))
 			{
-				variables.noOfTrap--;
+				Variables.noOfTrap--;
 				sleep(Random.nextInt(1800, 2300));
 			}
 		}
@@ -56,7 +56,7 @@ public class huntFerret extends Node
 				sleep(1800);
 			}
 
-			variables.noOfTrap--;//when traps fall, failed entity id will appear hence it will active as well causing a -ve in no.of traps
+			Variables.noOfTrap--;//when traps fall, failed entity id will appear hence it will active as well causing a -ve in no.of traps
 								 //not a problem as traps in inventory that cannot be placed will still + noOfTraps back
 			sleep(300);
 		}
