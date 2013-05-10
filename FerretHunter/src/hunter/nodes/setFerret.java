@@ -47,8 +47,8 @@ public class SetFerret extends Node
 		{
 			if(BOX_TRAP != null)
 			{
-				if(!Players.getLocal().getLocation().equals(BOX_TRAP.getLocation()) )
-					if(!Players.getLocal().getLocation().equals(placedBoxTrap.getLocation()) )
+				if(!Players.getLocal().getLocation().equals(BOX_TRAP.getLocation())
+						&& !Players.getLocal().getLocation().equals(placedBoxTrap.getLocation()) )
 					{
 						layTrap();
 					}
